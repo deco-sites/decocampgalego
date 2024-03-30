@@ -2,6 +2,9 @@
   "imports": {
     "deco-sites/decocampgalego/": "./",
 
+    "$components/": "./components/",
+    "$sdk/": "./sdk/",
+    "$islands/": "./islands/",
     "deco/": "https://cdn.jsdelivr.net/gh/deco-cx/deco@1.60.11/",
     "apps/": "https://cdn.jsdelivr.net/gh/deco-cx/apps@0.35.25/",
     "$fresh/": "https://deno.land/x/fresh@1.6.5/",
