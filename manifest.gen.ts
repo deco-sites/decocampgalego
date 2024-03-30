@@ -2,12 +2,15 @@
 // This file SHOULD be checked into source version control.
 // This file is automatically updated during development when running `dev.ts`.
 
+import * as $$$$$$$$$0 from "./actions/sendLikesAction.ts";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
 import * as $$$2 from "./loaders/availableIcons.ts";
 import * as $$$3 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
 import * as $$$1 from "./loaders/List/Sections.tsx";
+import * as $$$4 from "./loaders/totalLikesLoader.ts";
+import * as $$$5 from "./loaders/totalLikesProductLoader.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Cards/IconCardsCarousel.tsx";
 import * as $$$$$$2 from "./sections/Cards/IconCardsCarouselWithImage.tsx";
@@ -49,15 +52,16 @@ import * as $$$$$$37 from "./sections/Product/Horizontal.tsx";
 import * as $$$$$$38 from "./sections/Product/ImageGalleryFrontBack.tsx";
 import * as $$$$$$39 from "./sections/Product/NotFound.tsx";
 import * as $$$$$$40 from "./sections/Product/NotFoundChallenge.tsx";
-import * as $$$$$$41 from "./sections/Product/ProductDetails.tsx";
-import * as $$$$$$42 from "./sections/Product/ProductShelf.tsx";
-import * as $$$$$$43 from "./sections/Product/ProductShelfTabbed.tsx";
-import * as $$$$$$44 from "./sections/Product/SearchResult.tsx";
-import * as $$$$$$45 from "./sections/Product/ShelfWithImage.tsx";
-import * as $$$$$$46 from "./sections/Product/Wishlist.tsx";
-import * as $$$$$$47 from "./sections/Social/InstagramPosts.tsx";
-import * as $$$$$$48 from "./sections/Social/WhatsApp.tsx";
-import * as $$$$$$49 from "./sections/Theme/Theme.tsx";
+import * as $$$$$$41 from "./sections/Product/PartialImageGallery.tsx";
+import * as $$$$$$42 from "./sections/Product/ProductDetails.tsx";
+import * as $$$$$$43 from "./sections/Product/ProductShelf.tsx";
+import * as $$$$$$44 from "./sections/Product/ProductShelfTabbed.tsx";
+import * as $$$$$$45 from "./sections/Product/SearchResult.tsx";
+import * as $$$$$$46 from "./sections/Product/ShelfWithImage.tsx";
+import * as $$$$$$47 from "./sections/Product/Wishlist.tsx";
+import * as $$$$$$48 from "./sections/Social/InstagramPosts.tsx";
+import * as $$$$$$49 from "./sections/Social/WhatsApp.tsx";
+import * as $$$$$$50 from "./sections/Theme/Theme.tsx";
 
 const manifest = {
   "loaders": {
@@ -65,6 +69,8 @@ const manifest = {
     "deco-sites/decocampgalego/loaders/icons.ts": $$$3,
     "deco-sites/decocampgalego/loaders/Layouts/ProductCard.tsx": $$$0,
     "deco-sites/decocampgalego/loaders/List/Sections.tsx": $$$1,
+    "deco-sites/decocampgalego/loaders/totalLikesLoader.ts": $$$4,
+    "deco-sites/decocampgalego/loaders/totalLikesProductLoader.ts": $$$5,
   },
   "sections": {
     "deco-sites/decocampgalego/sections/Animation/Animation.tsx": $$$$$$0,
@@ -115,16 +121,21 @@ const manifest = {
     "deco-sites/decocampgalego/sections/Product/NotFound.tsx": $$$$$$39,
     "deco-sites/decocampgalego/sections/Product/NotFoundChallenge.tsx":
       $$$$$$40,
-    "deco-sites/decocampgalego/sections/Product/ProductDetails.tsx": $$$$$$41,
-    "deco-sites/decocampgalego/sections/Product/ProductShelf.tsx": $$$$$$42,
+    "deco-sites/decocampgalego/sections/Product/PartialImageGallery.tsx":
+      $$$$$$41,
+    "deco-sites/decocampgalego/sections/Product/ProductDetails.tsx": $$$$$$42,
+    "deco-sites/decocampgalego/sections/Product/ProductShelf.tsx": $$$$$$43,
     "deco-sites/decocampgalego/sections/Product/ProductShelfTabbed.tsx":
-      $$$$$$43,
-    "deco-sites/decocampgalego/sections/Product/SearchResult.tsx": $$$$$$44,
-    "deco-sites/decocampgalego/sections/Product/ShelfWithImage.tsx": $$$$$$45,
-    "deco-sites/decocampgalego/sections/Product/Wishlist.tsx": $$$$$$46,
-    "deco-sites/decocampgalego/sections/Social/InstagramPosts.tsx": $$$$$$47,
-    "deco-sites/decocampgalego/sections/Social/WhatsApp.tsx": $$$$$$48,
-    "deco-sites/decocampgalego/sections/Theme/Theme.tsx": $$$$$$49,
+      $$$$$$44,
+    "deco-sites/decocampgalego/sections/Product/SearchResult.tsx": $$$$$$45,
+    "deco-sites/decocampgalego/sections/Product/ShelfWithImage.tsx": $$$$$$46,
+    "deco-sites/decocampgalego/sections/Product/Wishlist.tsx": $$$$$$47,
+    "deco-sites/decocampgalego/sections/Social/InstagramPosts.tsx": $$$$$$48,
+    "deco-sites/decocampgalego/sections/Social/WhatsApp.tsx": $$$$$$49,
+    "deco-sites/decocampgalego/sections/Theme/Theme.tsx": $$$$$$50,
+  },
+  "actions": {
+    "deco-sites/decocampgalego/actions/sendLikesAction.ts": $$$$$$$$$0,
   },
   "apps": {
     "deco-sites/decocampgalego/apps/decohub.ts": $$$$$$$$$$$0,
