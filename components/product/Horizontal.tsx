@@ -7,7 +7,15 @@ import { asset } from "$fresh/runtime.ts";
 export interface HorizontalProductSectionProps {
   products: Product[] | null;
   animation: boolean;
-  layout: "max-w-xl" | "max-w-2xl" | "max-w-3xl"| "max-w-4xl" | "max-w-5xl" |  "max-w-6xl" |  "max-w-7xl" | "max-w-full"
+  layout:
+    | "max-w-xl"
+    | "max-w-2xl"
+    | "max-w-3xl"
+    | "max-w-4xl"
+    | "max-w-5xl"
+    | "max-w-6xl"
+    | "max-w-7xl"
+    | "max-w-full";
 }
 
 export function loader(props: HorizontalProductSectionProps, _req: Request) {
@@ -19,12 +27,14 @@ export function loader(props: HorizontalProductSectionProps, _req: Request) {
 const Horizontal = ({
   products,
   animation,
-  layout
+  layout,
 }: HorizontalProductSectionProps) => {
   if (!products?.length) return null;
 
   return (
-    <div class={`w-full ${layout} px-4 mx-auto py-8 lg:py-10 flex flex-col gap-8 lg:gap-10`}>
+    <div
+      class={`w-full ${layout} px-4 mx-auto py-8 lg:py-10 flex flex-col gap-8 lg:gap-10`}
+    >
       {products.map((product) => (
         <HorizontalCard animation={animation} product={product} />
       ))}
@@ -34,10 +44,9 @@ const Horizontal = ({
 
 export function LoadingFallback() {
   return (
-    <div class="skeleton shrink-0 w-full h-[190px] m-2 max-w-[1366px] mx-auto"/>
+    <div class="skeleton shrink-0 w-full h-[190px] m-2 max-w-[1366px] mx-auto" />
   );
 }
-
 
 export function ErrorFallback({ error: _error }: { error?: Error }) {
   return (

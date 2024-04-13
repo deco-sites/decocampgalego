@@ -3,6 +3,7 @@ import Icon from "$components/ui/Icon.tsx";
 import { invoke } from "deco-sites/decocampgalego/runtime.ts";
 import { total } from "$sdk/useTotalLikes.ts";
 import { useEffect } from "preact/hooks";
+import { ToastContainer, toast, Bounce } from 'react-toastify';
 
 export interface LikeButtonIslandProps {
   productID: string;
@@ -11,12 +12,25 @@ export interface LikeButtonIslandProps {
 function LikeButton({ productID }: LikeButtonIslandProps) {
   const selected = useSignal(false);
   const quantity = useSignal(0);
+  const notify = () => toast('👍 Curtiu meeeeeu!', {
+    position: "top-right",
+    autoClose: 5000,
+    hideProgressBar: false,
+    closeOnClick: true,
+    pauseOnHover: false,
+    draggable: true,
+    progress: undefined,
+    theme: "light",
+    });;
+  const Toast = ToastContainer as any;
+
 
   useEffect(() => {
     const updateTotals = async () => {
       const totalLikes = await invoke["deco-sites/decocampgalego"].loaders
         .totalLikesLoader();
-      const totalLikesProduct = await invoke["deco-sites/decocampgalego"].loaders
+      const totalLikesProduct = await invoke["deco-sites/decocampgalego"]
+        .loaders
         .totalLikesProductLoader({ productID });
       total.value = totalLikes.total;
       quantity.value = totalLikesProduct.product;
@@ -40,9 +54,12 @@ function LikeButton({ productID }: LikeButtonIslandProps) {
     const totalLikesProduct = await invoke["deco-sites/decocampgalego"].loaders
       .totalLikesProductLoader({ productID });
     quantity.value = totalLikesProduct.product;
+    notify();
+    
   };
 
   return (
+    <>
     <button
       class="absolute left-4 sm:left-auto sm:right-4 top-4 flex items-center justify-center gap-1 p-1 sm:p-2 rounded bg-neutral sm:bg-white min-w-14"
       onClick={(e) => handleToggleLike(e)}
@@ -58,6 +75,18 @@ function LikeButton({ productID }: LikeButtonIslandProps) {
         {quantity.value}
       </span>
     </button>
+    <Toast position="top-right"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="light"
+        />
+    </>
   );
 }
 

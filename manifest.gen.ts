@@ -11,6 +11,8 @@ import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
 import * as $$$1 from "./loaders/List/Sections.tsx";
 import * as $$$4 from "./loaders/totalLikesLoader.ts";
 import * as $$$5 from "./loaders/totalLikesProductLoader.ts";
+import * as $$$$$$$0 from "./matchers/platform.ts";
+import * as $$$$$$$1 from "./matchers/utm.ts";
 import * as $$$$$$0 from "./sections/Animation/Animation.tsx";
 import * as $$$$$$1 from "./sections/Cards/IconCardsCarousel.tsx";
 import * as $$$$$$2 from "./sections/Cards/IconCardsCarouselWithImage.tsx";
@@ -133,6 +135,10 @@ const manifest = {
     "deco-sites/decocampgalego/sections/Social/InstagramPosts.tsx": $$$$$$48,
     "deco-sites/decocampgalego/sections/Social/WhatsApp.tsx": $$$$$$49,
     "deco-sites/decocampgalego/sections/Theme/Theme.tsx": $$$$$$50,
+  },
+  "matchers": {
+    "deco-sites/decocampgalego/matchers/platform.ts": $$$$$$$0,
+    "deco-sites/decocampgalego/matchers/utm.ts": $$$$$$$1,
   },
   "actions": {
     "deco-sites/decocampgalego/actions/sendLikesAction.ts": $$$$$$$$$0,

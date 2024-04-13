@@ -1,1 +1,5 @@
-export { default, LoadingFallback, ErrorFallback } from "../../components/product/Horizontal.tsx";
+export {
+  default,
+  ErrorFallback,
+  LoadingFallback,
+} from "../../components/product/Horizontal.tsx";

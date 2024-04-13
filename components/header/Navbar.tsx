@@ -80,9 +80,7 @@ function Navbar({
           logoPosition === "left" ? "justify-center" : "justify-start"
         }`}
       >
-        {items.map((item) => (
-          <NavItem item={item} />
-        ))}
+        {items.map((item) => <NavItem item={item} />)}
       </ul>
       <div
         class={`flex ${
