@@ -5,6 +5,7 @@
 import * as $$$$$$$$$0 from "./actions/sendLikesAction.ts";
 import * as $$$$$$$$$$$0 from "./apps/decohub.ts";
 import * as $$$$$$$$$$$1 from "./apps/site.ts";
+import * as $$$$$$$$0 from "./flags/multivariate.ts";
 import * as $$$2 from "./loaders/availableIcons.ts";
 import * as $$$3 from "./loaders/icons.ts";
 import * as $$$0 from "./loaders/Layouts/ProductCard.tsx";
@@ -139,6 +140,9 @@ const manifest = {
   "matchers": {
     "deco-sites/decocampgalego/matchers/platform.ts": $$$$$$$0,
     "deco-sites/decocampgalego/matchers/utm.ts": $$$$$$$1,
+  },
+  "flags": {
+    "deco-sites/decocampgalego/flags/multivariate.ts": $$$$$$$$0,
   },
   "actions": {
     "deco-sites/decocampgalego/actions/sendLikesAction.ts": $$$$$$$$$0,

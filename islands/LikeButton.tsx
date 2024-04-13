@@ -12,7 +12,7 @@ export interface LikeButtonIslandProps {
 function LikeButton({ productID }: LikeButtonIslandProps) {
   const selected = useSignal(false);
   const quantity = useSignal(0);
-    
+
   const Toast = ToastContainer as any;
 
   useEffect(() => {
@@ -74,7 +74,7 @@ function LikeButton({ productID }: LikeButtonIslandProps) {
           {quantity.value}
         </span>
       </button>
-      <Toast/>
+      <Toast />
     </>
   );
 }

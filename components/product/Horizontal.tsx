@@ -1,11 +1,11 @@
 // sections/Product/HorizontalProducts.tsx
 
-import type { Product } from "apps/commerce/types.ts";
 import { HorizontalCard } from "$components/product/HorizontalCard.tsx";
 import { asset } from "$fresh/runtime.ts";
+import { ProductCardFlagProps } from "deco-sites/decocampgalego/flags/multivariate.ts";
 
 export interface HorizontalProductSectionProps {
-  products: Product[] | null;
+  page: ProductCardFlagProps | null;
   animation: boolean;
   layout:
     | "max-w-xl"
@@ -25,19 +25,19 @@ export function loader(props: HorizontalProductSectionProps, _req: Request) {
 }
 
 const Horizontal = ({
-  products,
+  page,
   animation,
   layout,
 }: HorizontalProductSectionProps) => {
-  if (!products?.length) return null;
+  const { product } = page || {};
+  
+  if (!product) return null;
 
   return (
     <div
       class={`w-full ${layout} px-4 mx-auto py-8 lg:py-10 flex flex-col gap-8 lg:gap-10`}
     >
-      {products.map((product) => (
-        <HorizontalCard animation={animation} product={product} />
-      ))}
+        <HorizontalCard animation={animation} products={product} />
     </div>
   );
 };

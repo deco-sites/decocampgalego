@@ -1,22 +1,22 @@
 import Image from "apps/website/components/Image.tsx";
 import AddToCartButtonVTEX from "../../islands/AddToCartButton/vtex.tsx";
-import { Product } from "apps/commerce/types.ts";
+import { Product, ProductDetailsPage } from "apps/commerce/types.ts";
 import { formatPrice } from "$sdk/format.ts";
 import { useOffer } from "$sdk/useOffer.ts";
 import LikeButton from "$islands/LikeButton.tsx";
 
 interface HorizontalProductCardProps {
-  product: Product;
+  products: Product 
   animation: boolean;
 }
 
 export const HorizontalCard = ({
-  product,
+  products,
   animation,
 }: HorizontalProductCardProps) => {
-  const { productID, name, url, offers, isVariantOf, image: images } = product;
+  const { productID, name, url, offers, isVariantOf, image: images } = products;
 
-  const description = product.description || isVariantOf?.description;
+  const description = products.description || isVariantOf?.description;
   const { listPrice, price, seller } = useOffer(offers);
 
   const eventParams = {
