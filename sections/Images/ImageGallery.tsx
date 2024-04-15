@@ -17,6 +17,12 @@ export interface Banner {
    * @description Adicione um link
    */
   href: string;
+  /**
+   * @description Ative para priorizar o carregamento da imagem
+   * Utilize apenas para a imagem da primeira dobra do site
+   */
+  /** @default false */
+  lcp?: boolean;
 }
 
 export type BorderRadius =
@@ -130,9 +136,9 @@ function Banner(
       /** @default none */
       desktop?: BorderRadius;
     };
-  },
+  }
 ) {
-  const { borderRadius, srcMobile, srcDesktop, alt } = props;
+  const { borderRadius, srcMobile, srcDesktop, alt, lcp } = props;
   const radiusDesktop = RADIUS.desktop[borderRadius?.desktop ?? "none"];
   const radiusMobile = RADIUS.mobile[borderRadius?.desktop ?? "none"];
 
@@ -147,12 +153,14 @@ function Banner(
           height={190}
           media="(max-width: 767px)"
           src={srcMobile}
+          fetchPriority={lcp ? "high" : "low"}
         />
         <Source
           width={640}
           height={420}
           media="(min-width: 768px)"
           src={srcDesktop || srcMobile}
+          fetchPriority={lcp ? "high" : "low"}
         />
         <img
           width={640}
@@ -160,7 +168,7 @@ function Banner(
           src={srcMobile}
           alt={alt}
           decoding="async"
-          loading="lazy"
+          loading={lcp ? "eager" : "lazy"}
         />
       </Picture>
     </a>

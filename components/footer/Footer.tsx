@@ -225,7 +225,6 @@ function Footer({
             <div class="flex flex-col md:flex-row gap-10 md:gap-14 md:items-end">
               {_payments}
               {_social}
-
             </div>
             <Divider />
             <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10">
@@ -278,7 +277,7 @@ function Footer({
         )}
         {layout?.variation == "Variation 4" && (
           <div class="flex flex-col gap-10">
-           <Divider />
+            <Divider />
             <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 lg:justify-between">
               {_sectionLinks}
               <div class="flex flex-col md:flex-row lg:flex-col gap-10 lg:gap-10 lg:w-2/5 lg:pl-10">
@@ -291,7 +290,6 @@ function Footer({
                   </div>
                 </div>
                 <div class="flex flex-col gap-10 lg:gap-10">
-
                 </div>
               </div>
             </div>
