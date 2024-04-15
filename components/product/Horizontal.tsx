@@ -30,14 +30,14 @@ const Horizontal = ({
   layout,
 }: HorizontalProductSectionProps) => {
   const { product } = page || {};
-  
+
   if (!product) return null;
 
   return (
     <div
       class={`w-full ${layout} px-4 mx-auto py-8 lg:py-10 flex flex-col gap-8 lg:gap-10`}
     >
-        <HorizontalCard animation={animation} products={product} />
+      <HorizontalCard animation={animation} products={product} />
     </div>
   );
 };

@@ -2,8 +2,9 @@ import { useSignal } from "@preact/signals";
 import Icon from "$components/ui/Icon.tsx";
 import { invoke } from "deco-sites/decocampgalego/runtime.ts";
 import { total } from "$sdk/useTotalLikes.ts";
-import { useEffect } from "preact/hooks";
+import { useEffect, useId } from "preact/hooks";
 import { Bounce, toast, ToastContainer } from "react-toastify";
+import { SendEventOnClick } from "deco-sites/decocampgalego/components/Analytics.tsx";
 
 export interface LikeButtonIslandProps {
   productID: string;
@@ -14,6 +15,8 @@ function LikeButton({ productID }: LikeButtonIslandProps) {
   const quantity = useSignal(0);
 
   const Toast = ToastContainer as any;
+
+  const id = useId();
 
   useEffect(() => {
     const updateTotals = async () => {
@@ -60,9 +63,23 @@ function LikeButton({ productID }: LikeButtonIslandProps) {
   return (
     <>
       <button
+        id={id}
         class="absolute left-4 sm:left-auto sm:right-4 top-4 flex items-center justify-center gap-1 p-1 sm:p-2 rounded bg-neutral sm:bg-white min-w-14"
         onClick={(e) => handleToggleLike(e)}
       >
+        <SendEventOnClick
+          id={id}
+          event={{
+            // @ts-ignore:
+            name: "post_score",
+            params: {
+              // @ts-ignore:
+              score: quantity.value + 1,
+              level: 5,
+              character: String(productID),
+            },
+          }}
+        />
         {!selected.value
           ? <Icon id="MoodSmile" width={24} height={24} />
           : <Icon id="MoodCheck" width={24} height={24} />}
@@ -74,6 +91,7 @@ function LikeButton({ productID }: LikeButtonIslandProps) {
           {quantity.value}
         </span>
       </button>
+
       <Toast />
     </>
   );

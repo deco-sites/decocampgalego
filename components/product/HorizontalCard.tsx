@@ -6,7 +6,7 @@ import { useOffer } from "$sdk/useOffer.ts";
 import LikeButton from "$islands/LikeButton.tsx";
 
 interface HorizontalProductCardProps {
-  products: Product 
+  products: Product;
   animation: boolean;
 }
 

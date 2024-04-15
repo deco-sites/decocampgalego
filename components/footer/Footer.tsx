@@ -188,15 +188,7 @@ function Footer({
   },
 }: Props) {
   const _logo = layout?.hide?.logo ? <></> : <Logo logo={logo} />;
-  const _newsletter = layout?.hide?.newsletter ? <></> : (
-    <Newsletter
-      content={newsletter}
-      layout={{
-        tiled: layout?.variation == "Variation 4" ||
-          layout?.variation == "Variation 5",
-      }}
-    />
-  );
+
   const _sectionLinks = layout?.hide?.sectionLinks ? <></> : (
     <FooterItems
       sections={sections}
@@ -210,12 +202,7 @@ function Footer({
   const _payments = layout?.hide?.paymentMethods
     ? <></>
     : <PaymentMethods content={payments} />;
-  const _apps = layout?.hide?.mobileApps
-    ? <></>
-    : <MobileApps content={mobileApps} />;
-  const _region = layout?.hide?.regionOptions
-    ? <></>
-    : <RegionSelector content={regionOptions} />;
+
   const _links = layout?.hide?.extraLinks
     ? <></>
     : <ExtraLinks content={extraLinks} />;
@@ -233,16 +220,12 @@ function Footer({
             <div class="flex flex-col md:flex-row md:justify-between md:flex-wrap lg:flex-nowrap gap-8 lg:gap-12">
               {_logo}
               {_sectionLinks}
-              {_newsletter}
             </div>
             <Divider />
             <div class="flex flex-col md:flex-row gap-10 md:gap-14 md:items-end">
               {_payments}
               {_social}
-              <div class="flex flex-col lg:flex-row gap-10 lg:gap-14 lg:items-end">
-                {_apps}
-                {_region}
-              </div>
+
             </div>
             <Divider />
             <div class="flex flex-col-reverse md:flex-row md:justify-between gap-10">
@@ -258,11 +241,8 @@ function Footer({
                 {_logo}
                 {_social}
                 {_payments}
-                {_apps}
-                {_region}
               </div>
               <div class="flex flex-col gap-10 lg:gap-20 lg:w-1/2 lg:pr-10">
-                {_newsletter}
                 {_sectionLinks}
               </div>
             </div>
@@ -278,10 +258,8 @@ function Footer({
             {_logo}
             <div class="flex flex-col lg:flex-row gap-14">
               <div class="flex flex-col md:flex-row lg:flex-col md:justify-between lg:justify-normal gap-10 lg:w-2/5">
-                {_newsletter}
                 <div class="flex flex-col gap-10">
                   {_payments}
-                  {_apps}
                 </div>
               </div>
               <div class="flex flex-col gap-10 lg:gap-20 lg:w-3/5 lg:items-end">
@@ -289,7 +267,6 @@ function Footer({
                   {_sectionLinks}
                   {_social}
                 </div>
-                {_region}
               </div>
             </div>
             <Divider />
@@ -301,8 +278,7 @@ function Footer({
         )}
         {layout?.variation == "Variation 4" && (
           <div class="flex flex-col gap-10">
-            {_newsletter}
-            {layout?.hide?.newsletter ? <></> : <Divider />}
+           <Divider />
             <div class="flex flex-col lg:flex-row gap-10 lg:gap-20 lg:justify-between">
               {_sectionLinks}
               <div class="flex flex-col md:flex-row lg:flex-col gap-10 lg:gap-10 lg:w-2/5 lg:pl-10">
@@ -315,8 +291,7 @@ function Footer({
                   </div>
                 </div>
                 <div class="flex flex-col gap-10 lg:gap-10">
-                  {_region}
-                  {_apps}
+
                 </div>
               </div>
             </div>
@@ -329,7 +304,6 @@ function Footer({
         )}
         {layout?.variation == "Variation 5" && (
           <div class="flex flex-col gap-10">
-            {_newsletter}
             {layout?.hide?.newsletter ? <></> : <Divider />}
             {_logo}
             <div class="flex flex-col md:flex-row gap-10 lg:gap-20 md:justify-between">
@@ -337,7 +311,6 @@ function Footer({
               <div class="flex flex-col gap-10 md:w-2/5 lg:pl-10">
                 {_payments}
                 {_social}
-                {_apps}
               </div>
             </div>
             <Divider />
@@ -345,15 +318,11 @@ function Footer({
               <PoweredByDeco />
               <div class="flex flex-col md:flex-row gap-10 md:items-center">
                 {_links}
-                {_region}
               </div>
             </div>
           </div>
         )}
       </div>
-      {layout?.hide?.backToTheTop
-        ? <></>
-        : <BackToTop content={backToTheTop?.text} />}
     </footer>
   );
 }
