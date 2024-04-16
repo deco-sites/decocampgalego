@@ -146,7 +146,7 @@ function Navbar({
             {platform === "linx" && <CartButtonLinx />}
             {platform === "shopify" && <CartButtonShopify />}
             {platform === "nuvemshop" && <CartButtonNuvemshop />}
-          </div> 
+          </div>
         )}
       </div>
     </div>
