@@ -54,8 +54,8 @@ function Navbar({
               alt={logo.alt}
               width={logo.width || 100}
               height={logo.height || 13}
-              loading='lazy'
-              fetchPriority='low'
+              loading="lazy"
+              fetchPriority="low"
             />
           </a>
         )}
@@ -104,7 +104,7 @@ function Navbar({
         {!buttons?.hideSearchButton && (
           <div class="flex items-center text-xs font-thin gap-1">
             <SearchButton />
-            SEARCH
+            BUSCA
           </div>
         )}
 
@@ -118,7 +118,7 @@ function Navbar({
             <div class="flex btn btn-circle btn-sm btn-ghost gap-1">
               <Icon id="User" size={20} strokeWidth={0.4} />
             </div>
-            ACCOUNT
+            MINHA CONTA
           </a>
         )}
         {!buttons?.hideWishlistButton && (

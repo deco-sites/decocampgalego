@@ -136,7 +136,7 @@ function Banner(
       /** @default none */
       desktop?: BorderRadius;
     };
-  }
+  },
 ) {
   const { borderRadius, srcMobile, srcDesktop, alt, lcp } = props;
   const radiusDesktop = RADIUS.desktop[borderRadius?.desktop ?? "none"];
